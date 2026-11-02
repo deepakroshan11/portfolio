@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Works | Deepak Roshan</title>
+    <link rel="icon" type="image/png" href="assets/icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&family=Share+Tech+Mono&family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #0d1b2a;
+            --navy: #0d1b2a;
+            --navy-mid: #162235;
+            --card-bg: rgba(22, 34, 53, 0.7);
+            --accent: #c8a96e;
+            --accent2: #e2c99a;
+            --offwhite: #f5f0eb;
+            --grey: #8b9cb0;
+            --grey-light: #b0bec8;
+            --grey-dim: #4a5d6e;
+            --border: rgba(200, 169, 110, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--offwhite);
+            font-family: 'Jost', sans-serif;
+            min-height: 100vh;
+            padding: 2.2rem 1.5rem 8rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .works-backdrop-grid {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(200, 169, 110, 0.08) 0%, transparent 65%),
+                linear-gradient(rgba(200, 169, 110, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(200, 169, 110, 0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
+            z-index: -1;
+        }
+
+        .works-top-nav {
+            max-width: 680px;
+            margin: 0 auto 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .works-clock-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 10.5px;
+            color: var(--grey-light);
+            letter-spacing: 0.06em;
+            background: rgba(22, 34, 53, 0.6);
+            border: 1px solid rgba(200, 169, 110, 0.22);
+            padding: 5px 12px;
+            border-radius: 999px;
+            backdrop-filter: blur(10px);
+        }
+
+        .works-clock-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #c8a96e;
+            box-shadow: 0 0 8px rgba(200, 169, 110, 0.85);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.85); }
+        }
+
+        .works-back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Jost', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--accent);
+            background: rgba(200, 169, 110, 0.08);
+            border: 1px solid rgba(200, 169, 110, 0.35);
+            border-radius: 8px;
+            padding: 6px 14px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all .25s ease;
+        }
+
+        .works-back-btn:hover {
+            background: var(--accent);
+            color: var(--navy);
+            border-color: var(--accent);
+            box-shadow: 0 0 16px rgba(200, 169, 110, 0.35);
+            transform: translateX(-2px);
+        }
+
+        .works-back-btn svg {
+            width: 14px;
+            height: 14px;
+            stroke-width: 2.2;
+        }
+
+        .works-content-wrap {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .works-heading-row {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .works-main-heading {
+            font-size: clamp(2rem, 5vw, 2.6rem);
+            font-weight: 600;
+            color: var(--offwhite);
+            letter-spacing: -0.02em;
+            margin: 0;
+            line-height: 1.15;
+        }
+
+        .works-count-pill {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.82rem;
+            color: var(--grey);
+            background: rgba(22, 34, 53, 0.65);
+            border: 1px solid rgba(144, 165, 180, 0.22);
+            padding: 3px 9px;
+            border-radius: 6px;
+        }
+
+        .works-main-subtitle {
+            font-size: 0.94rem;
+            color: var(--grey);
+            line-height: 1.6;
+            margin: 0 0 2.8rem;
+            font-weight: 300;
+        }
+
+        .works-project-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+
+        .works-project-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 8px 12px;
+            border-radius: 10px;
+            text-decoration: none;
+            background: transparent;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all .25s ease;
+        }
+
+        .works-project-item:hover {
+            background: rgba(22, 34, 53, 0.45);
+            border-color: rgba(200, 169, 110, 0.25);
+            transform: translateX(4px);
+        }
+
+        .works-project-num {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.92rem;
+            color: var(--grey-dim);
+            margin-top: 3px;
+            font-variant-numeric: tabular-nums;
+            width: 28px;
+            flex-shrink: 0;
+        }
+
+        .works-project-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .works-project-title-line {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.12rem;
+            font-weight: 500;
+            color: var(--offwhite);
+            line-height: 1.35;
+            transition: color .2s ease;
+        }
+
+        .works-project-item:hover .works-project-title-line {
+            color: var(--accent);
+        }
+
+        .works-chevron-arrow {
+            display: inline-block;
+            opacity: 0;
+            transform: translateX(-6px);
+            transition: opacity .25s ease, transform .25s ease;
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        .works-project-item:hover .works-chevron-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .works-project-dates-line {
+            font-size: 0.82rem;
+            color: var(--grey);
+            margin-top: 4px;
+            font-weight: 400;
+        }
+
+        /* Detail Modal View */
+        .works-detail-view {
+            display: none;
+            animation: fadeIn .3s ease forwards;
+        }
+
+        .works-detail-view.active {
+            display: block;
+        }
+
+        .works-sub-back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.84rem;
+            color: var(--grey);
+            border: 1px solid rgba(144, 165, 180, 0.22);
+            background: rgba(22, 34, 53, 0.6);
+            border-radius: 8px;
+            padding: 6px 14px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-bottom: 1.8rem;
+            transition: all .2s ease;
+        }
+
+        .works-sub-back-btn:hover {
+            color: var(--offwhite);
+            border-color: var(--accent);
+            background: rgba(200, 169, 110, 0.1);
+        }
+
+        .works-detail-title {
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            font-weight: 600;
+            color: var(--offwhite);
+            line-height: 1.2;
+            margin-bottom: 0.4rem;
+        }
+
+        .works-detail-meta {
+            font-size: 0.88rem;
+            color: var(--grey);
+            margin-bottom: 1.8rem;
+        }
+
+        .works-detail-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(200, 169, 110, 0.3) 15%, rgba(200, 169, 110, 0.3) 85%, transparent);
+            margin: 1.8rem 0;
+        }
+
+        .works-detail-desc {
+            font-size: 0.92rem;
+            line-height: 1.8;
+            color: var(--offwhite);
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+
+        /* Demo Mockup Window Inside Works Detail */
+        .proj-demo-window {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid rgba(200, 169, 110, 0.22);
+            background: rgba(8, 15, 24, 0.95);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55);
+            overflow: hidden;
+            margin: 1.2rem 0;
+        }
+
+        .proj-demo-topbar {
+            height: 36px;
+            background: rgba(18, 28, 42, 0.65);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 14px;
+        }
+
+        .proj-demo-lights {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            width: 50px;
+        }
+
+        .light-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+        }
+
+        .light-dot.red { background: #ff5f56; }
+        .light-dot.yellow { background: #ffbd2e; }
+        .light-dot.green { background: #27c93f; }
+
+        .proj-demo-url {
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 5px;
+            padding: 3px 24px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 10px;
+            color: rgba(176, 190, 200, 0.7);
+            letter-spacing: 0.06em;
+        }
+
+        .proj-demo-step-badge {
+            padding: 12px 18px 2px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 9.5px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .proj-demo-canvas {
+            min-height: 180px;
+            padding: 20px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 22px;
+            background: radial-gradient(circle at 50% 50%, rgba(22, 34, 53, 0.45) 0%, rgba(8, 15, 24, 0.95) 100%);
+        }
+
+        .demo-card-item {
+            background: rgba(16, 26, 38, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 9px;
+            padding: 14px 20px;
+            min-width: 110px;
+            text-align: center;
+        }
+
+        .demo-card-icon {
+            width: 32px;
+            height: 32px;
+            margin: 0 auto 8px;
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .demo-card-icon.red { background: rgba(239, 68, 68, 0.14); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); }
+        .demo-card-icon.green { background: rgba(34, 197, 94, 0.14); color: #22c55e; border: 1px solid rgba(34, 197, 94, 0.3); }
+        .demo-card-icon.gold { background: rgba(200, 169, 110, 0.14); color: #c8a96e; border: 1px solid rgba(200, 169, 110, 0.3); }
+        .demo-card-icon.cyan { background: rgba(56, 189, 248, 0.14); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+
+        .demo-card-icon svg { width: 17px; height: 17px; stroke-width: 2.2; }
+        .demo-card-name { font-size: 12px; font-weight: 600; color: #f5f0eb; margin-bottom: 2px; }
+        .demo-card-sub { font-size: 8.5px; color: var(--grey); font-family: 'Share Tech Mono', monospace; }
+
+        .demo-similarity-gauge { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+        .sim-circle-outer {
+            width: 48px; height: 48px; border-radius: 50%; background: rgba(34, 197, 94, 0.1);
+            border: 1.5px solid rgba(34, 197, 94, 0.5); display: flex; align-items: center; justify-content: center; position: relative;
+        }
+        .sim-circle-outer.pulse::before {
+            content: ''; position: absolute; inset: -4px; border-radius: 50%; border: 1.5px solid rgba(34, 197, 94, 0.45);
+            animation: simPulse 2s infinite;
+        }
+        @keyframes simPulse { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(1.35); opacity: 0; } }
+        @keyframes simSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes simSpinRev { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
+        .sim-pct { font-size: 13px; font-weight: 700; color: #4ade80; }
+        .sim-label { font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey); font-family: 'Share Tech Mono', monospace; }
+
+        .proj-dots-row { display: flex; align-items: center; gap: 6px; padding: 4px 18px 10px; }
+        .p-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(144, 165, 180, 0.3); cursor: pointer; transition: all .25s ease; }
+        .p-dot.active { width: 18px; border-radius: 999px; background: var(--accent); box-shadow: 0 0 8px rgba(200, 169, 110, 0.6); }
+
+        .proj-demo-footbar {
+            height: 28px; border-top: 1px solid rgba(255, 255, 255, 0.06); background: rgba(12, 20, 32, 0.7);
+            display: flex; align-items: center; justify-content: space-between; padding: 0 16px;
+            font-family: 'Share Tech Mono', monospace; font-size: 8.5px; color: rgba(176, 190, 200, 0.5); letter-spacing: 0.09em;
+        }
+        .status-tag { display: flex; align-items: center; gap: 6px; }
+        .status-pulse-dot { width: 5px; height: 5px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 6px #22c55e; }
+
+        .proj-tech-badges-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 1.4rem 0 1.2rem; }
+        .proj-tech-pill {
+            display: inline-flex; align-items: center; font-size: .74rem; font-weight: 500; color: var(--grey-light);
+            background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(144, 165, 180, 0.2); border-radius: 999px; padding: 0.22rem 0.65rem;
+        }
+
+        .proj-actions-row { display: flex; align-items: center; gap: 0.85rem; flex-wrap: wrap; }
+        .proj-btn-primary {
+            display: inline-flex; align-items: center; gap: 0.45rem; background: var(--accent); color: #0d1b2a;
+            font-size: .8rem; font-weight: 600; padding: 0.5rem 1.15rem; border-radius: 8px; text-decoration: none;
+            box-shadow: 0 4px 14px rgba(200, 169, 110, 0.25);
+        }
+        .proj-btn-primary:hover { background: #e0c88a; }
+        .proj-btn-primary svg { width: 14px; height: 14px; }
+        .proj-btn-secondary {
+            display: inline-flex; align-items: center; gap: 0.45rem; background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(144, 165, 180, 0.22); color: var(--offwhite); font-size: .8rem; font-weight: 500;
+            padding: 0.5rem 1.15rem; border-radius: 8px; text-decoration: none;
+        }
+        .proj-btn-secondary:hover { background: rgba(255, 255, 255, 0.12); border-color: rgba(200, 169, 110, 0.4); }
+        .proj-btn-secondary svg { width: 15px; height: 15px; }
+
+        /* Floating Bottom Dock (Image 4) */
+        .dock-nav {
+            position: fixed !important; top: auto !important; bottom: 1.25rem !important; left: 50% !important; right: auto !important;
+            transform: translateX(-50%); z-index: 9980; display: flex; align-items: center; justify-content: center;
+            width: max-content; padding: 0 !important; margin: 0 !important; height: auto !important;
+        }
+        .dock-shell {
+            display: flex; align-items: center; gap: 0.35rem; padding: 0.45rem 0.65rem; border-radius: 9999px;
+            background: rgba(13, 27, 42, 0.92); border: 1px solid rgba(249, 115, 22, 0.45);
+            backdrop-filter: blur(24px); box-shadow: 0 0 18px 4px rgba(249, 115, 22, 0.35), 0 0 36px 8px rgba(239, 68, 68, 0.12), 0 12px 36px rgba(0, 0, 0, 0.65);
+        }
+        .dock-item {
+            display: flex; align-items: center; justify-content: center; width: 42px; height: 42px;
+            border-radius: 50%; border: 1px solid rgba(144, 165, 180, 0.12); background: rgba(255, 255, 255, 0.03);
+            color: var(--grey); text-decoration: none; cursor: pointer; transition: all .25s ease;
+        }
+        .dock-item:hover, .dock-item.active {
+            transform: translateY(-4px) scale(1.1); color: var(--offwhite);
+            background: rgba(200, 169, 110, 0.18); border-color: rgba(200, 169, 110, 0.55);
+        }
+        .dock-item svg { width: 20px; height: 20px; }
+        .dock-divider { width: 1px; height: 22px; background: rgba(144, 165, 180, 0.2); margin: 0 0.15rem; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1.5rem 1rem 7rem;
+            }
+            .dock-nav {
+                bottom: 1rem;
+                max-width: calc(100vw - 20px);
+            }
+            .dock-shell {
+                padding: 0.35rem 0.5rem;
+                gap: 0.25rem;
+            }
+            .dock-item {
+                width: 38px;
+                height: 38px;
+            }
+            .dock-item svg {
+                width: 17px;
+                height: 17px;
+            }
+            .dock-divider {
+                height: 18px;
+                margin: 0 0.08rem;
+            }
+            .works-top-nav {
+                margin-bottom: 2rem;
+            }
+            .proj-demo-canvas {
+                flex-direction: column;
+                gap: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="works-backdrop-grid"></div>
+
+    <!-- Top nav with live clock and back to portfolio -->
+    <div class="works-top-nav">
+        <div class="works-clock-badge">
+            <span class="works-clock-dot"></span>
+            <span id="worksClockDisplay">12:31:58 · Mon 02 Nov · IST</span>
+        </div>
+        <a href="index.html#projects" class="works-back-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="m15 18-6-6 6-6"/>
+            </svg>
+            <span>Back to Portfolio</span>
+        </a>
+    </div>
+
+    <div class="works-content-wrap">
+        <!-- Main Works Directory View (Image 4) -->
+        <div id="worksListView">
+            <div class="works-heading-row">
+                <h1 class="works-main-heading">Works</h1>
+                <span class="works-count-pill">4 projects</span>
+            </div>
+            <p class="works-main-subtitle">
+                Selected builds — full-stack apps, ML, and experiments worth sharing.
+            </p>
+
+            <div class="works-project-list">
+                <!-- 01. Findora -->
+                <div class="works-project-item" onclick="showDetail('findora')">
+                    <span class="works-project-num">01.</span>
+                    <div class="works-project-info">
+                        <div class="works-project-title-line">
+                            <span>Findora – AI-Powered Lost and Found</span>
+                            <span class="works-chevron-arrow">→</span>
+                        </div>
+                        <div class="works-project-dates-line">2024 · Active</div>
+                    </div>
+                </div>
+
+                <!-- 02. VoxAI -->
+                <div class="works-project-item" onclick="showDetail('voxai')">
+                    <span class="works-project-num">02.</span>
+                    <div class="works-project-info">
+                        <div class="works-project-title-line">
+                            <span>VoxAI – Neural Voice Clone Studio</span>
+                            <span class="works-chevron-arrow">→</span>
+                        </div>
+                        <div class="works-project-dates-line">2025 · Active</div>
+                    </div>
+                </div>
+
+                <!-- 03. ISL Translator -->
+                <div class="works-project-item" onclick="showDetail('isl-translator')">
+                    <span class="works-project-num">03.</span>
+                    <div class="works-project-info">
+                        <div class="works-project-title-line">
+                            <span>ISL Translator – Sign Language AI</span>
+                            <span class="works-chevron-arrow">→</span>
+                        </div>
+                        <div class="works-project-dates-line">2025 · Active</div>
+                    </div>
+                </div>
+
+                <!-- 04. CloudGuard AI -->
+                <div class="works-project-item" onclick="showDetail('cloudguard')">
+                    <span class="works-project-num">04.</span>
+                    <div class="works-project-info">
+                        <div class="works-project-title-line">
+                            <span>CloudGuard AI – Self-Healing Cloud Monitor</span>
+                            <span class="works-chevron-arrow">→</span>
+                        </div>
+                        <div class="works-project-dates-line">2025 · Active</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detail Subview -->
+        <div id="worksDetailView" class="works-detail-view">
+            <button type="button" class="works-sub-back-btn" onclick="showList()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="14" height="14" stroke-width="2.2">
+                    <path d="m15 18-6-6 6-6"/>
+                </svg>
+                <span>Back to Works</span>
+            </button>
+            <div id="detailContainer"></div>
+        </div>
+    </div>
+
+    <!-- FLOATING BOTTOM DOCK NAVBAR (Matching Image 4) -->
+    <nav class="dock-nav" aria-label="Quick Navigation">
+        <div class="dock-shell">
+            <a href="index.html#hero" class="dock-item" aria-label="Home" title="Home">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path>
+                    <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                </svg>
+            </a>
+            <a href="works.html" class="dock-item active" aria-label="Projects" title="Projects">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path>
+                    <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path>
+                    <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path>
+                </svg>
+            </a>
+            <a href="assets/Deepak-Roshan-Resume.pdf" download="Deepak-Roshan-Resume.pdf" class="dock-item" aria-label="Resume" title="Resume">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="12" y1="18" x2="12" y2="12"></line>
+                    <line x1="9" y1="15" x2="15" y2="15"></line>
+                </svg>
+            </a>
+            <div class="dock-divider"></div>
+            <a href="https://github.com/deepakroshan11" target="_blank" rel="noopener noreferrer" class="dock-item" aria-label="GitHub" title="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+            </a>
+            <a href="https://linkedin.com/in/deepak-roshan-a" target="_blank" rel="noopener noreferrer" class="dock-item" aria-label="LinkedIn" title="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+            </a>
+            <a href="https://youtube.com/@deepakroshan" target="_blank" rel="noopener noreferrer" class="dock-item" aria-label="YouTube" title="YouTube">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+            </a>
+        </div>
+    </nav>
+
+    <script>
+        const DETAILS = {
+            findora: {
+                title: "Findora – AI-Powered Lost and Found",
+                dates: "2024 · Active",
+                desc: "<p><strong>Findora</strong> is a full-stack lost-and-found platform that uses <strong>image, text, and location data</strong> to match lost items with found reports automatically — no manual search required.</p><p>Features <strong>MobileNetV3</strong> visual embeddings + <strong>MiniLM</strong> semantic encoding with a multimodal fusion scoring algorithm.</p>",
+                url: "findora.ai/dashboard",
+                step: "STEP 3: HIGH-CONFIDENCE AI MATCH",
+                canvas: `
+                    <div class="demo-card-item">
+                        <div class="demo-card-icon red">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+                        </div>
+                        <div class="demo-card-name">Lost iPhone</div>
+                        <div class="demo-card-sub">Report #A2849</div>
+                    </div>
+                    <div class="demo-similarity-gauge">
+                        <div class="sim-circle-outer pulse"><span class="sim-pct">98%</span></div>
+                        <span class="sim-label">SIMILARITY</span>
+                    </div>
+                    <div class="demo-card-item">
+                        <div class="demo-card-icon green">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+                        </div>
+                        <div class="demo-card-name">Found Phone</div>
+                        <div class="demo-card-sub">Turned in Today</div>
+                    </div>`,
+                engine: "FUSION MATCH ENGINE V1.0",
+                tech: ["React", "Vite", "FastAPI", "Python", "MobileNetV3", "MiniLM", "Supabase", "PostgreSQL", "Cloudinary", "Render", "Vercel"],
+                live: "https://findora-ai-lost-found.vercel.app/",
+                github: "https://github.com/deepakroshan11/findora-ai-lost-found"
+            },
+            voxai: {
+                title: "VoxAI – Neural Voice Clone Studio",
+                dates: "2025 · Active",
+                desc: "<p><strong>VoxAI</strong> is a zero-shot neural voice cloning studio. Users upload a 3-5s sample and synthesize speech that precisely preserves natural accent, breathiness, and emotional contour.</p><p>Features a 7-stage DSP audio mastering pipeline with LUFS normalization and true-peak limiting.</p>",
+                url: "voxai.ai/studio",
+                step: "STEP 3: NEURAL LATENT SYNTHESIS",
+                canvas: `
+                    <div class="demo-card-item">
+                        <div class="demo-card-icon gold">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+                        </div>
+                        <div class="demo-card-name">Voice Sample</div>
+                        <div class="demo-card-sub">4.2s Reference</div>
+                    </div>
+                    <div class="demo-similarity-gauge">
+                        <div class="sim-circle-outer pulse" style="border-color: rgba(200, 169, 110, 0.6); background: rgba(200, 169, 110, 0.1);"><span class="sim-pct" style="color: #e2c99a;">99.4%</span></div>
+                        <span class="sim-label">FIDELITY</span>
+                    </div>
+                    <div class="demo-card-item">
+                        <div class="demo-card-icon gold">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                        </div>
+                        <div class="demo-card-name">Voice Clone</div>
+                        <div class="demo-card-sub">Zero-Shot TTS</div>
+                    </div>`,
+                engine: "VOX-SYNTH ENGINE V2.0",
+                tech: ["Python", "FastAPI", "ChatterboxTTS", "DSP Audio Pipeline", "Docker", "Hugging Face Spaces", "HTML5", "Modern JS"],
+                live: "https://huggingface.co/spaces/deepakroshan/voxai",
+                github: "https://github.com/deepakroshan11/voxai-voice-clone"
+            },
+            "isl-translator": {
+                title: "ISL Translator – Sign Language AI",
+                dates: "2025 · Active",
+                desc: "<p>A real-time <strong>Indian Sign Language (ISL) translation system</strong> designed to bridge communication barriers. Employs MediaPipe landmark detection with a TensorFlow CNN achieving ~95% classification accuracy, coupled with speech-to-sign Three.js avatar synthesis.</p>",
+                url: "isl-translator.ai/live",
+                step: "STEP 3: REAL-TIME GESTURE TRANSLATION",
+                canvas: `
+                    <div class="demo-card-item">
+                        <div class="demo-card-icon cyan">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+                        </div>
+                        <div class="demo-card-name">Hand Landmarks</div>
+                        <div class="demo-card-sub">21 Nodes Tracked</div>
+                    </div>
+                    <div class="demo-similarity-gauge">
+                        <div class="sim-circle-outer pulse" style="border-color: rgba(56, 189, 248, 0.6); background: rgba(56, 189, 248, 0.1);"><span class="sim-pct" style="color: #38bdf8;">96.8%</span></div>
+                        <span class="sim-label">CONFIDENCE</span>
+                    </div>
+                    <div class="demo-card-item">
+                        <div class="demo-card-icon green">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        </div>
+                        <div class="demo-card-name">"Hello, Welcome!"</div>
+                        <div class="demo-card-sub">English Speech</div>
+                    </div>`,
+                engine: "MEDIAPIPE TENSOR V3.2",
+                tech: ["TensorFlow", "MediaPipe", "Flask", "Socket.IO", "Three.js", "Web Speech API", "Python", "OpenCV", "Hugging Face Spaces"],
+                live: "https://huggingface.co/spaces/deepakroshan/isl-detection",
+                github: "https://github.com/deepakroshan11/ISL-Mobile-Cloud-Version"
+            },
+            cloudguard: {
+                title: "CloudGuard AI – Self-Healing Cloud Monitor",
+                dates: "2025 · Active",
+                desc: "<p><strong>CloudGuard AI</strong> is an intelligent AWS infrastructure monitor that detects anomalies in real time and <strong>automatically heals itself</strong> — without manual intervention.</p><p>Streams CloudWatch metrics through an Isolation Forest machine learning pipeline with automated AWS Lambda remediation routines.</p>",
+                url: "cloudguard.ai/monitor",
+                step: "STEP 3: SELF-HEALING AUTO-REMEDIATION",
+                canvas: `
+                    <div class="demo-card-item">
+                        <div class="demo-card-icon red">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
+                        </div>
+                        <div class="demo-card-name">EC2 prod-04</div>
+                        <div class="demo-card-sub">CPU 98.4% Anomaly</div>
+                    </div>
+                    <div class="demo-similarity-gauge">
+                        <div class="sim-circle-outer pulse"><span class="sim-pct">100%</span></div>
+                        <span class="sim-label">HEALED</span>
+                    </div>
+                    <div class="demo-card-item">
+                        <div class="demo-card-icon green">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <div class="demo-card-name">Lambda Action</div>
+                        <div class="demo-card-sub">Auto-Scaled &amp; OK</div>
+                    </div>`,
+                engine: "ISOLATION FOREST ENGINE V1.0",
+                tech: ["Python", "AWS EC2", "AWS Lambda", "AWS CloudWatch", "AWS SNS", "AWS S3", "Isolation Forest", "Streamlit", "Boto3"],
+                live: "http://13.201.191.91:8501/",
+                github: "https://github.com/deepakroshan11/cloudguard-ai"
+            }
+        };
+
+        const DETAIL_STEPS = {
+            findora: [
+                {
+                    label: "STEP 1: UPLOADING LOST ITEM (IMAGE & TEXT)",
+                    url: "findora.ai/upload",
+                    footerStatus: "STATUS: INGESTING",
+                    footerEngine: "MULTIMODAL INGESTION API",
+                    html: `<div style="display:flex;align-items:center;gap:16px;">
+                             <div style="width:58px;height:58px;border-radius:10px;background:rgba(239,68,68,0.12);border:1px dashed rgba(239,68,68,0.4);display:flex;align-items:center;justify-content:center;color:#ef4444;">
+                               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="26" height="26"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+                             </div>
+                             <div>
+                               <div style="font-size:12.5px;font-weight:600;color:#f5f0eb;margin-bottom:2px;">Lost: iPhone 13 Pro (Sierra Blue)</div>
+                               <div style="font-size:9.5px;color:var(--grey);font-family:'Share Tech Mono',monospace;">"Blue silicone case, crack on bottom right"</div>
+                               <div style="font-size:8.5px;color:var(--accent);margin-top:4px;">📍 Library 2nd Floor · Oct 28</div>
+                             </div>
+                           </div>`
+                },
+                {
+                    label: "STEP 2: EXTRACTING DEEP VISUAL FEATURES",
+                    url: "findora.ai/feature-extract",
+                    footerStatus: "STATUS: EXTRACTING",
+                    footerEngine: "MOBILENETV3 EMBEDDING",
+                    html: `<div style="display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;">
+                             <div style="position:relative;width:50px;height:50px;display:flex;align-items:center;justify-content:center;">
+                               <div style="position:absolute;inset:0;border-radius:50%;border:1.5px dashed var(--accent);animation:simSpin 3s linear infinite;"></div>
+                               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22" style="color:var(--accent);"><path d="M2 12h20"/><path d="M12 2v20"/><circle cx="12" cy="12" r="7"/></svg>
+                             </div>
+                             <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--grey-light);">Extracting 1,024-dim visual tensor + color histogram</div>
+                           </div>`
+                },
+                {
+                    label: "STEP 3: MULTI-MODAL FUSION & EMBEDDING",
+                    url: "findora.ai/fusion-match",
+                    footerStatus: "STATUS: FUSING",
+                    footerEngine: "MINILM SEMANTIC ENCODER",
+                    html: `<div style="display:flex;align-items:center;gap:12px;">
+                             <div class="demo-card-item" style="padding:10px 14px;min-width:90px;">
+                               <div class="demo-card-icon red" style="width:28px;height:28px;margin-bottom:4px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="15" height="15"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/></svg></div>
+                               <div class="demo-card-name" style="font-size:11px;">Lost iPhone</div>
+                             </div>
+                             <div class="demo-similarity-gauge">
+                               <div class="sim-circle-outer pulse" style="width:42px;height:42px;"><span class="sim-pct" style="font-size:11.5px;">98%</span></div>
+                               <span class="sim-label" style="font-size:7.5px;">SIMILARITY</span>
+                             </div>
+                             <div class="demo-card-item" style="padding:10px 14px;min-width:90px;">
+                               <div class="demo-card-icon green" style="width:28px;height:28px;margin-bottom:4px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="15" height="15"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/></svg></div>
+                               <div class="demo-card-name" style="font-size:11px;">Found Item #41</div>
+                             </div>
+                           </div>`
+                },
+                {
+                    label: "STEP 4: SEMANTIC COSINE DISTANCE COMPUTED",
+                    url: "findora.ai/compute",
+                    footerStatus: "STATUS: COMPUTED",
+                    footerEngine: "COSINE SIMILARITY ENGINE",
+                    html: `<div style="display:flex;flex-direction:column;gap:6px;width:100%;max-width:260px;">
+                             <div style="display:flex;justify-content:space-between;font-size:9.5px;font-family:'Share Tech Mono',monospace;">
+                               <span style="color:var(--grey-light);">Visual Similarity (MobileNet)</span>
+                               <span style="color:#4ade80;font-weight:700;">97.2%</span>
+                             </div>
+                             <div style="width:100%;height:4px;background:rgba(144,165,180,0.2);border-radius:999px;overflow:hidden;">
+                               <div style="width:97.2%;height:100%;background:#4ade80;"></div>
+                             </div>
+                             <div style="display:flex;justify-content:space-between;font-size:9.5px;font-family:'Share Tech Mono',monospace;margin-top:4px;">
+                               <span style="color:var(--grey-light);">Semantic Description Match</span>
+                               <span style="color:#4ade80;font-weight:700;">99.1%</span>
+                             </div>
+                             <div style="width:100%;height:4px;background:rgba(144,165,180,0.2);border-radius:999px;overflow:hidden;">
+                               <div style="width:99.1%;height:100%;background:#4ade80;"></div>
+                             </div>
+                           </div>`
+                },
+                {
+                    label: "STEP 5: RANKED TOP MATCH (SIMILARITY 98.4%)",
+                    url: "findora.ai/matched",
+                    footerStatus: "STATUS: VERIFIED MATCH",
+                    footerEngine: "SUPABASE POSTGRESQL + PGVECTOR",
+                    html: `<div style="display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;">
+                             <div style="width:38px;height:38px;border-radius:50%;background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.5);display:flex;align-items:center;justify-content:center;color:#4ade80;">
+                               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20"><polyline points="20 6 9 17 4 12"/></svg>
+                             </div>
+                             <div style="font-size:12px;font-weight:600;color:#f5f0eb;">Found Match #F92 · Security Desk (Library)</div>
+                             <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--accent);">Claim notification dispatched to owner via Email / SMS</div>
+                           </div>`
+                }
+            ],
+            voxai: [
+                {
+                    label: "STEP 1: VOICE AUDIO UPLOAD & NORMALIZATION",
+                    url: "voxai.ai/upload",
+                    footerStatus: "STATUS: NORMALIZING",
+                    footerEngine: "LUFS AUDIO NORMALIZER",
+                    html: `<div style="display:flex;align-items:center;gap:14px;">
+                             <div style="width:52px;height:52px;border-radius:10px;background:rgba(200,169,110,0.12);border:1px dashed rgba(200,169,110,0.4);display:flex;align-items:center;justify-content:center;color:var(--accent);">
+                               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
+                             </div>
+                             <div>
+                               <div style="font-size:12px;font-weight:600;color:#f5f0eb;">sample_voice_reference.wav</div>
+                               <div style="font-size:9px;color:var(--grey);font-family:'Share Tech Mono',monospace;">44.1kHz · 16-bit Mono · 4.2 seconds</div>
+                               <div style="font-size:8px;color:#4ade80;margin-top:3px;">LUFS normalized: -14 LUFS target achieved</div>
+                             </div>
+                           </div>`
+                },
+                {
+                    label: "STEP 2: SPEAKER EMBEDDING EXTRACTION",
+                    url: "voxai.ai/embedding",
+                    footerStatus: "STATUS: EXTRACTING",
+                    footerEngine: "ECAPA-TDNN NEURAL ENCODER",
+                    html: `<div style="display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;">
+                             <div style="position:relative;width:48px;height:48px;display:flex;align-items:center;justify-content:center;">
+                               <div style="position:absolute;inset:0;border-radius:50%;border:1.5px dashed var(--accent);animation:simSpin 3s linear infinite;"></div>
+                               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22" style="color:var(--accent);"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                             </div>
+                             <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--grey-light);">Extracting 512-dim d-vector latent timbre representation</div>
+                           </div>`
+                },
+                {
+                    label: "STEP 3: ZERO-SHOT VOICE CLONING (FIDELITY 99.4%)",
+                    url: "voxai.ai/clone",
+                    footerStatus: "STATUS: SYNTHESIZED",
+                    footerEngine: "CHATTERBOX TTS ENGINE",
+                    html: `<div style="display:flex;align-items:center;gap:14px;">
+                             <div class="demo-card-item" style="padding:10px 14px;min-width:90px;">
+                               <div class="demo-card-icon gold" style="width:28px;height:28px;margin-bottom:4px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="15" height="15"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/></svg></div>
+                               <div class="demo-card-name" style="font-size:11px;">Voice Sample</div>
+                             </div>
+                             <div class="demo-similarity-gauge">
+                               <div class="sim-circle-outer pulse" style="width:42px;height:42px;border-color:rgba(200,169,110,0.6);"><span class="sim-pct" style="font-size:11px;color:#e2c99a;">99.4%</span></div>
+                               <span class="sim-label" style="font-size:7.5px;">FIDELITY</span>
+                             </div>
+                             <div class="demo-card-item" style="padding:10px 14px;min-width:90px;">
+                               <div class="demo-card-icon gold" style="width:28px;height:28px;margin-bottom:4px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="15" height="15"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/></svg></div>
+                               <div class="demo-card-name" style="font-size:11px;">Voice Clone</div>
+                             </div>
+                           </div>`
+                },
+                {
+                    label: "STEP 4: HIFI-GAN NEURAL SYNTHESIS",
+                    url: "voxai.ai/vocoder",
+                    footerStatus: "STATUS: VOCODING",
+                    footerEngine: "HIFI-GAN NEURAL VOCODER",
+                    html: `<div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+                             <div style="display:flex;align-items:flex-end;gap:4px;height:38px;">
+                               <span style="width:4px;height:14px;background:#c8a96e;border-radius:2px;"></span>
+                               <span style="width:4px;height:28px;background:#e2c99a;border-radius:2px;"></span>
+                               <span style="width:4px;height:36px;background:#f5f0eb;border-radius:2px;"></span>
+                               <span style="width:4px;height:22px;background:#c8a96e;border-radius:2px;"></span>
+                               <span style="width:4px;height:34px;background:#e2c99a;border-radius:2px;"></span>
+                               <span style="width:4px;height:18px;background:#c8a96e;border-radius:2px;"></span>
+                               <span style="width:4px;height:30px;background:#f5f0eb;border-radius:2px;"></span>
+                               <span style="width:4px;height:12px;background:#c8a96e;border-radius:2px;"></span>
+                             </div>
+                             <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--grey-light);">HiFi-GAN vocoder converting mel-spectrogram to audio wave</div>
+                           </div>`
+                },
+                {
+                    label: "STEP 5: 7-STAGE DSP AUDIO MASTERING & EXPORT",
+                    url: "voxai.ai/export",
+                    footerStatus: "STATUS: MASTERED",
+                    footerEngine: "7-STAGE DSP MASTERING PIPELINE",
+                    html: `<div style="display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;">
+                             <div style="width:38px;height:38px;border-radius:50%;background:rgba(200,169,110,0.15);border:1px solid rgba(200,169,110,0.5);display:flex;align-items:center;justify-content:center;color:var(--accent);">
+                               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                             </div>
+                             <div style="font-size:12px;font-weight:600;color:#f5f0eb;">High-Fidelity Audio Ready</div>
+                             <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--grey);">True-peak limited · 24-bit studio WAV download ready</div>
+                           </div>`
+                }
+            ],
+            "isl-translator": [
+                {
+                    label: "STEP 1: 21 3D LANDMARK DETECTION",
+                    url: "isl-translator.ai/landmarks",
+                    footerStatus: "STATUS: TRACKING",
+                    footerEngine: "MEDIAPIPE HANDS PIPELINE",
+                    html: `<div style="display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;">
+                             <div style="width:46px;height:46px;border-radius:50%;background:rgba(56,189,248,0.1);border:1.5px solid rgba(56,189,248,0.45);display:flex;align-items:center;justify-content:center;color:#38bdf8;">
+                               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"/><path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"/></svg>
+                             </div>
+                             <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--grey-light);">MediaPipe tracking 21 3D hand keypoints in real time</div>
+                           </div>`
+                },
+                {
+                    label: "STEP 2: REAL-TIME GESTURE TRANSLATION",
+                    url: "isl-translator.ai/detect",
+                    footerStatus: "STATUS: CLASSIFIED",
+                    footerEngine: "TENSORFLOW CNN MODEL",
+                    html: `<div style="display:flex;align-items:center;gap:14px;">
+                             <div class="demo-card-item" style="padding:10px 14px;min-width:90px;">
+                               <div class="demo-card-icon cyan" style="width:28px;height:28px;margin-bottom:4px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="15" height="15"><path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"/></svg></div>
+                               <div class="demo-card-name" style="font-size:11px;">Hand Gesture</div>
+                             </div>
+                             <div style="font-size:16px;color:var(--grey-dim);">→</div>
+                             <div style="background:rgba(22,34,53,0.9);border:1px solid rgba(144,165,180,0.25);border-radius:10px;padding:8px 14px;text-align:center;">
+                               <div style="font-size:12px;font-weight:600;color:#f5f0eb;">🙏 Namaste</div>
+                               <div style="font-size:8px;color:#4ade80;font-weight:700;font-family:'Share Tech Mono',monospace;margin-top:2px;">96.4% Confidence</div>
+                             </div>
+                           </div>`
+                },
+                {
+                    label: "STEP 3: FACIAL & EMOTION LANDMARKS",
+                    url: "isl-translator.ai/emotion",
+                    footerStatus: "STATUS: SMOOTHED",
+                    footerEngine: "TEMPORAL FACIAL SMOOTHER",
+                    html: `<div style="display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;">
+                             <div style="position:relative;width:44px;height:44px;display:flex;align-items:center;justify-content:center;">
+                               <div style="position:absolute;inset:0;border-radius:50%;border:1.5px dashed #f43f5e;animation:simSpin 3s linear infinite;"></div>
+                               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22" style="color:#fb7185;"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg>
+                             </div>
+                             <div style="font-size:10px;font-weight:600;color:#f5f0eb;">😊 Friendly expression detected (95.0%)</div>
+                           </div>`
+                },
+                {
+                    label: "STEP 4: SPEECH OUTPUT & 3D AVATAR",
+                    url: "isl-translator.ai/output",
+                    footerStatus: "STATUS: DELIVERED",
+                    footerEngine: "THREE.JS + WEB SPEECH API",
+                    html: `<div style="display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;">
+                             <div style="width:38px;height:38px;border-radius:50%;background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.5);display:flex;align-items:center;justify-content:center;color:#4ade80;">
+                               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                             </div>
+                             <div style="font-size:12px;font-weight:600;color:#f5f0eb;">"Hello, Welcome!"</div>
+                             <div style="font-family:'Share Tech Mono',monospace;font-size:8.5px;color:var(--grey);">Synthesized audio spoken + 3D avatar animation</div>
+                           </div>`
+                }
+            ],
+            cloudguard: [
+                {
+                    label: "STEP 1: CLOUDWATCH TELEMETRY STREAM",
+                    url: "cloudguard.ai/monitor",
+                    footerStatus: "STATUS: STREAMING",
+                    footerEngine: "AWS CLOUDWATCH TELEMETRY",
+                    html: `<div style="display:flex;flex-direction:column;gap:6px;width:100%;max-width:260px;">
+                             <div style="display:flex;justify-content:space-between;font-size:9px;font-family:'Share Tech Mono',monospace;"><span>CPU</span><span style="color:#38bdf8;">45%</span></div>
+                             <div style="height:5px;background:rgba(144,165,180,0.15);border-radius:999px;overflow:hidden;"><div style="width:45%;height:100%;background:#38bdf8;"></div></div>
+                             <div style="display:flex;justify-content:space-between;font-size:9px;font-family:'Share Tech Mono',monospace;margin-top:2px;"><span>MEM</span><span style="color:#818cf8;">52%</span></div>
+                             <div style="height:5px;background:rgba(144,165,180,0.15);border-radius:999px;overflow:hidden;"><div style="width:52%;height:100%;background:#818cf8;"></div></div>
+                           </div>`
+                },
+                {
+                    label: "STEP 2: ANOMALY DETECTED (CPU SPIKE)",
+                    url: "cloudguard.ai/alert",
+                    footerStatus: "STATUS: ANOMALY DETECTED",
+                    footerEngine: "ISOLATION FOREST ANOMALY SCORE 0.94",
+                    html: `<div style="display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;">
+                             <div style="width:42px;height:42px;border-radius:50%;background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.5);display:flex;align-items:center;justify-content:center;color:#ef4444;animation:pulse 1.4s infinite;">
+                               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" x2="12" y1="9" y2="13"/></svg>
+                             </div>
+                             <div style="font-size:11.5px;font-weight:700;color:#ef4444;">EC2 CPU Anomaly: 99% Spiking</div>
+                             <div style="font-family:'Share Tech Mono',monospace;font-size:8px;color:var(--grey);">Isolation Forest anomaly_score = 0.94</div>
+                           </div>`
+                },
+                {
+                    label: "STEP 3: SELF-HEALING AUTO-REMEDIATION",
+                    url: "cloudguard.ai/healing",
+                    footerStatus: "STATUS: HEALING",
+                    footerEngine: "AWS LAMBDA SERVERLESS TRIGGER",
+                    html: `<div style="display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;">
+                             <div style="position:relative;width:42px;height:42px;display:flex;align-items:center;justify-content:center;">
+                               <div style="position:absolute;inset:0;border-radius:50%;border:1.5px dashed var(--accent);animation:simSpin 2s linear infinite;"></div>
+                               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" style="color:var(--accent);"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                             </div>
+                             <div style="font-family:'Share Tech Mono',monospace;font-size:8.5px;color:var(--grey-light);">AWS Lambda executing auto-scale and node replacement...</div>
+                           </div>`
+                },
+                {
+                    label: "STEP 4: SYSTEM HEALTH RESTORED 100%",
+                    url: "cloudguard.ai/healthy",
+                    footerStatus: "STATUS: RESTORED",
+                    footerEngine: "AWS SNS TELEMETRY DISPATCH",
+                    html: `<div style="display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;">
+                             <div style="width:40px;height:40px;border-radius:50%;background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.5);display:flex;align-items:center;justify-content:center;color:#4ade80;">
+                               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/></svg>
+                             </div>
+                             <div style="font-size:12px;font-weight:600;color:#f5f0eb;">Cluster Stabilized at 22% CPU</div>
+                             <div style="font-family:'Share Tech Mono',monospace;font-size:8px;color:#4ade80;">[SNS] Automated resolution finished in 14s.</div>
+                           </div>`
+                }
+            ]
+        };
+
+        let currentActiveSlug = null;
+        let detailTimer = null;
+        let detailStepIdx = 0;
+
+        function renderDetailStep(slug, idx) {
+            const steps = DETAIL_STEPS[slug];
+            if (!steps || !steps[idx]) return;
+            detailStepIdx = idx;
+            const step = steps[idx];
+
+            const lbl = document.getElementById('worksDetailStepBadge');
+            const canvas = document.getElementById('worksDetailCanvas');
+            const urlEl = document.getElementById('worksDetailUrl');
+            const statusTag = document.getElementById('worksDetailStatus');
+            const engineEl = document.getElementById('worksDetailEngine');
+
+            if (lbl) lbl.textContent = '✦ ' + step.label;
+            if (canvas) canvas.innerHTML = step.html;
+            if (urlEl && step.url) urlEl.textContent = step.url;
+            if (statusTag && step.footerStatus) {
+                statusTag.innerHTML = '<span class="status-pulse-dot"></span>' + step.footerStatus;
+            }
+            if (engineEl && step.footerEngine) {
+                engineEl.textContent = step.footerEngine;
+            }
+
+            const dotsWrap = document.getElementById('worksDetailDots');
+            if (dotsWrap) {
+                dotsWrap.querySelectorAll('.p-dot').forEach((d, i) => {
+                    d.classList.toggle('active', i === idx);
+                });
+            }
+        }
+
+        function startDetailStepRunner(slug) {
+            if (detailTimer) clearInterval(detailTimer);
+            const steps = DETAIL_STEPS[slug];
+            if (!steps || steps.length === 0) return;
+
+            detailStepIdx = 0;
+            renderDetailStep(slug, 0);
+
+            detailTimer = setInterval(() => {
+                const next = (detailStepIdx + 1) % steps.length;
+                renderDetailStep(slug, next);
+            }, 2600);
+        }
+
+        window.jumpDetailStep = function (idx) {
+            if (!currentActiveSlug) return;
+            renderDetailStep(currentActiveSlug, idx);
+            startDetailStepRunner(currentActiveSlug);
+        };
+
+        function showDetail(slug) {
+            const data = DETAILS[slug];
+            if (!data) return;
+            currentActiveSlug = slug;
+            const listEl = document.getElementById('worksListView');
+            const detailEl = document.getElementById('worksDetailView');
+            const container = document.getElementById('detailContainer');
+
+            const techHtml = data.tech.map(t => `<span class="proj-tech-pill">${t}</span>`).join(' ');
+            const steps = DETAIL_STEPS[slug] || [];
+            const dotsHtml = steps.map((_, i) => `<span class="p-dot ${i === 0 ? 'active' : ''}" onclick="jumpDetailStep(${i})"></span>`).join('');
+
+            container.innerHTML = `
+                <h1 class="works-detail-title">${data.title}</h1>
+                <div class="works-detail-meta">${data.dates}</div>
+                <div class="works-detail-divider"></div>
+                <div class="works-detail-desc">${data.desc}</div>
+                
+                <div class="proj-demo-window">
+                    <div class="proj-demo-topbar">
+                        <div class="proj-demo-lights">
+                            <span class="light-dot red"></span>
+                            <span class="light-dot yellow"></span>
+                            <span class="light-dot green"></span>
+                        </div>
+                        <div class="proj-demo-url" id="worksDetailUrl">${data.url}</div>
+                        <div style="width:50px;"></div>
+                    </div>
+                    <div class="proj-demo-step-badge">
+                        <span id="worksDetailStepBadge">✦ ${data.step}</span>
+                    </div>
+                    <div class="proj-dots-row" id="worksDetailDots">
+                        ${dotsHtml}
+                    </div>
+                    <div class="proj-demo-canvas" id="worksDetailCanvas">
+                        ${data.canvas}
+                    </div>
+                    <div class="proj-demo-footbar">
+                        <span class="status-tag" id="worksDetailStatus"><span class="status-pulse-dot"></span>STATUS: ACTIVE</span>
+                        <span id="worksDetailEngine">${data.engine}</span>
+                    </div>
+                </div>
+
+                <div class="proj-tech-badges-row">${techHtml}</div>
+                <div class="proj-actions-row" style="margin-top: 1.6rem;">
+                    <a href="${data.live}" target="_blank" rel="noopener noreferrer" class="proj-btn-primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                        <span>Live Demo</span> ↗
+                    </a>
+                    <a href="${data.github}" target="_blank" rel="noopener noreferrer" class="proj-btn-secondary">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                        <span>GitHub</span> ↗
+                    </a>
+                </div>
+            `;
+
+            listEl.style.display = 'none';
+            detailEl.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            startDetailStepRunner(slug);
+        }
+
+        function showList() {
+            if (detailTimer) {
+                clearInterval(detailTimer);
+                detailTimer = null;
+            }
+            currentActiveSlug = null;
+            const listEl = document.getElementById('worksListView');
+            const detailEl = document.getElementById('worksDetailView');
+            detailEl.classList.remove('active');
+            listEl.style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Live Clock
+        function updateClock() {
+            const el = document.getElementById('worksClockDisplay');
+            if (!el) return;
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('en-US', {
+                hour: '2-digit', minute: '2-digit', second: '2-digit',
+                hour12: false, timeZone: 'Asia/Kolkata'
+            });
+            const dayOfWeek = now.toLocaleDateString('en-US', { weekday: 'short', timeZone: 'Asia/Kolkata' });
+            const dayNum = now.toLocaleDateString('en-US', { day: '2-digit', timeZone: 'Asia/Kolkata' });
+            const monthStr = now.toLocaleDateString('en-US', { month: 'short', timeZone: 'Asia/Kolkata' });
+            el.textContent = `${timeStr} · ${dayOfWeek} ${dayNum} ${monthStr} · IST`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Check if slug is in hash
+        if (location.hash && location.hash.length > 1) {
+            const slug = location.hash.substring(1).replace('works/', '');
+            if (DETAILS[slug]) showDetail(slug);
+        }
+    </script>
+</body>
+
+</html>
