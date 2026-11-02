@@ -1388,25 +1388,25 @@
         }
 
         .proj-card {
-            border: 1px solid rgba(144, 165, 180, 0.16);
-            border-radius: 14px;
-            background: rgba(22, 34, 53, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: rgba(13, 27, 42, 0.7);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
             overflow: hidden;
             transition: border-color .3s ease, background-color .3s ease, box-shadow .3s ease, transform .3s ease;
         }
 
         .proj-card:hover {
-            border-color: rgba(200, 169, 110, 0.42);
-            background: rgba(30, 48, 72, 0.82);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), 0 0 20px rgba(200, 169, 110, 0.08);
+            border-color: rgba(200, 169, 110, 0.35);
+            background: rgba(22, 34, 53, 0.85);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), 0 0 20px rgba(200, 169, 110, 0.06);
         }
 
         .proj-card.is-open {
-            border-color: rgba(200, 169, 110, 0.58);
-            background: rgba(26, 42, 64, 0.92);
-            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45), 0 0 25px rgba(200, 169, 110, 0.14);
+            border-color: rgba(200, 169, 110, 0.45);
+            background: rgba(20, 32, 50, 0.94);
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(200, 169, 110, 0.1);
         }
 
         .proj-card-trigger {
@@ -1597,19 +1597,20 @@
 
         .proj-desc-box {
             font-size: .88rem;
-            line-height: 1.75;
-            color: var(--offwhite);
+            line-height: 1.85;
+            color: var(--grey);
             font-family: 'Jost', sans-serif;
             font-weight: 300;
         }
 
         .proj-desc-box h4 {
             font-family: 'Jost', sans-serif;
-            font-size: .95rem;
-            font-weight: 600;
+            font-size: .66rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: .18em;
             color: var(--accent);
-            margin: 0.6rem 0 0.4rem;
-            letter-spacing: .03em;
+            margin: 0.95rem 0 0.35rem;
         }
 
         .proj-desc-box h4:first-child {
@@ -1618,7 +1619,15 @@
 
         .proj-desc-box p {
             margin-bottom: 0.75rem;
-            color: #d6dee6;
+            color: var(--grey);
+            font-family: 'Jost', sans-serif;
+            font-weight: 300;
+            line-height: 1.85;
+        }
+
+        .proj-desc-box p strong {
+            color: var(--offwhite);
+            font-weight: 500;
         }
 
         .proj-desc-box ul {
@@ -1633,16 +1642,24 @@
         .proj-desc-box li {
             padding-left: 1.2rem;
             position: relative;
-            color: var(--grey-light);
-            line-height: 1.6;
+            color: var(--grey);
+            font-family: 'Jost', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            font-size: .86rem;
+        }
+
+        .proj-desc-box li strong {
+            color: var(--offwhite);
+            font-weight: 500;
         }
 
         .proj-desc-box li::before {
             content: '';
             position: absolute;
             left: 0;
-            top: 0.65em;
-            width: 6px;
+            top: 0.75em;
+            width: 5px;
             height: 1.5px;
             background: var(--accent);
         }
@@ -1657,18 +1674,20 @@
         .proj-tech-pill {
             display: inline-flex;
             align-items: center;
+            font-family: 'Share Tech Mono', monospace;
             font-size: .72rem;
-            font-weight: 500;
+            letter-spacing: .04em;
+            font-weight: 400;
             color: var(--grey-light);
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(144, 165, 180, 0.18);
+            background: rgba(144, 165, 180, 0.06);
+            border: 1px solid var(--border-soft);
             border-radius: 999px;
             padding: 0.22rem 0.65rem;
             transition: all .2s ease;
         }
 
         .proj-tech-pill:hover {
-            border-color: rgba(200, 169, 110, 0.45);
+            border-color: rgba(200, 169, 110, 0.4);
             color: var(--offwhite);
             background: rgba(200, 169, 110, 0.08);
         }
@@ -1686,21 +1705,22 @@
             align-items: center;
             gap: 0.45rem;
             background: var(--accent);
-            color: #0d1b2a;
+            color: var(--navy);
+            font-family: 'Jost', sans-serif;
             font-size: .8rem;
-            font-weight: 600;
+            font-weight: 500;
             padding: 0.45rem 1.05rem;
             border-radius: 8px;
             text-decoration: none;
-            letter-spacing: .03em;
+            letter-spacing: .04em;
             transition: all .25s ease;
-            box-shadow: 0 4px 14px rgba(200, 169, 110, 0.25);
+            box-shadow: 0 4px 14px rgba(200, 169, 110, 0.2);
         }
 
         .proj-btn-primary:hover {
             transform: translateY(-2px);
             background: #e0c88a;
-            box-shadow: 0 6px 20px rgba(200, 169, 110, 0.4);
+            box-shadow: 0 6px 20px rgba(200, 169, 110, 0.35);
             color: #070f1a;
         }
 
@@ -1713,21 +1733,22 @@
             display: inline-flex;
             align-items: center;
             gap: 0.45rem;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(144, 165, 180, 0.22);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
             color: var(--offwhite);
+            font-family: 'Jost', sans-serif;
             font-size: .8rem;
-            font-weight: 500;
+            font-weight: 400;
             padding: 0.45rem 1.05rem;
             border-radius: 8px;
             text-decoration: none;
-            letter-spacing: .03em;
+            letter-spacing: .04em;
             transition: all .25s ease;
         }
 
         .proj-btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: rgba(200, 169, 110, 0.4);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(200, 169, 110, 0.35);
             color: var(--offwhite);
             transform: translateY(-2px);
         }
@@ -1739,11 +1760,13 @@
 
         .proj-full-link {
             margin-left: auto;
+            font-family: 'Jost', sans-serif;
             font-size: .82rem;
             color: var(--accent);
             text-decoration: underline;
             text-underline-offset: 4px;
-            font-weight: 500;
+            font-weight: 400;
+            letter-spacing: .02em;
             transition: color .2s ease;
             cursor: pointer;
         }
@@ -1759,12 +1782,12 @@
             width: 100%;
             border-radius: 12px;
             border: 1px solid rgba(200, 169, 110, 0.22);
-            background: rgba(8, 15, 24, 0.95);
+            background: #08111c;
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 0 1px rgba(200, 169, 110, .08), 0 24px 60px rgba(0, 0, 0, .55), inset 0 1px 0 rgba(200, 169, 110, .12);
             overflow: hidden;
-            margin: 0.9rem 0 0.4rem;
+            margin: 1rem 0 0.45rem;
             position: relative;
             transition: border-color .3s ease;
             user-select: none;
@@ -3746,10 +3769,8 @@
                                 <p><strong>Findora</strong> is a full-stack lost-and-found platform that uses <strong>image, text, and location data</strong> to match lost items with found reports automatically — no manual search required.</p>
                                 <h4>How it works</h4>
                                 <ul>
-                                    <li><strong>MobileNetV3</strong> extracts visual feature embeddings from item photos.</li>
-                                    <li><strong>MiniLM</strong> encodes text descriptions into semantic vectors.</li>
-                                    <li>A <strong>fusion scoring system</strong> combines vision + text similarity to rank matches and trigger email alerts for high-confidence results.</li>
-                                    <li>Items are stored in <strong>Supabase</strong> (PostgreSQL) with <strong>Cloudinary</strong> for image hosting.</li>
+                                    <li><strong>Multimodal embeddings:</strong> MobileNetV3 visual features fused with MiniLM semantic text vectors.</li>
+                                    <li><strong>Auto-match &amp; alerts:</strong> Cosine similarity scoring pairs lost items with instant email verification tokens.</li>
                                 </ul>
                             </div>
 
@@ -3870,10 +3891,8 @@
                                 <p><strong>VoxAI</strong> is a zero-shot voice cloning studio — give it a short audio sample and it generates speech in that voice, preserving accent and tone.</p>
                                 <h4>How it works</h4>
                                 <ul>
-                                    <li><strong>ChatterboxTTS</strong> handles zero-shot voice synthesis — no fine-tuning required.</li>
-                                    <li>A <strong>7-stage professional DSP audio chain</strong> post-processes the output: bass restoration → de-noising → harmonic extension → multiband dynamics → room tone removal → LUFS normalization → true-peak limiting.</li>
-                                    <li>The frontend features a <strong>vinyl disc recorder animation</strong> for a polished UX.</li>
-                                    <li>Deployed as a <strong>FastAPI</strong> app on <strong>Hugging Face Spaces</strong> via Docker.</li>
+                                    <li><strong>Zero-shot synthesis:</strong> ChatterboxTTS clones pitch, accent, and timbre from a 3-second audio sample.</li>
+                                    <li><strong>7-stage DSP mastering:</strong> Real-time noise removal, bass warmth restoration, and broadcast LUFS limiting.</li>
                                 </ul>
                             </div>
                             <!-- MOCK BROWSER DEMO WINDOW -->
@@ -4008,11 +4027,8 @@
                                 <p>A real-time <strong>Indian Sign Language (ISL) translation system</strong> designed to bridge the communication gap between deaf or non-verbal individuals and the hearing world. By turning hand gestures and facial expressions into readable text and speech in real time, it removes one of the most fundamental barriers to everyday interaction — enabling more inclusive and accessible conversations.</p>
                                 <h4>How it works</h4>
                                 <ul>
-                                    <li><strong>MediaPipe</strong> extracts hand and facial landmark keypoints from live webcam video.</li>
-                                    <li>A <strong>TensorFlow CNN</strong> trained on the raw keypoint data achieves <strong>~95% accuracy</strong> on ISL gestures.</li>
-                                    <li><strong>Emotion detection</strong> uses facial landmarks with temporal smoothing to prevent jitter.</li>
-                                    <li>A <strong>speech-to-sign avatar</strong> renders signs from spoken input using <strong>Three.js</strong> and the Web Speech API.</li>
-                                    <li>Deployed on <strong>Hugging Face Spaces</strong> with a Flask + Socket.IO backend running as a single-process daemon thread.</li>
+                                    <li><strong>Landmark classification:</strong> MediaPipe tracks 21 hand landmarks streamed into a 96.8% accurate CNN model.</li>
+                                    <li><strong>Bidirectional synthesis:</strong> Web Speech API and Three.js 3D avatar bridge sign-to-speech and speech-to-sign.</li>
                                 </ul>
                             </div>
                             <!-- MOCK BROWSER DEMO WINDOW -->
@@ -4140,11 +4156,8 @@
                                 <p><strong>CloudGuard AI</strong> is an intelligent AWS infrastructure monitor that detects anomalies in real time and <strong>automatically heals itself</strong> — without manual intervention.</p>
                                 <h4>How it works</h4>
                                 <ul>
-                                    <li><strong>CloudWatch</strong> streams real-time EC2 metrics (CPU, memory, network) into the pipeline.</li>
-                                    <li><strong>Isolation Forest</strong> (unsupervised ML) detects anomalies in system behavior without needing labeled failure data.</li>
-                                    <li>When an anomaly is confirmed, <strong>AWS Lambda</strong> triggers automated remediation — restart, scale, or alert.</li>
-                                    <li><strong>SNS</strong> sends instant notifications to operators with root-cause context.</li>
-                                    <li>A <strong>Streamlit dashboard</strong> visualizes live metrics, detected anomalies, and recovery actions in one place.</li>
+                                    <li><strong>Unsupervised ML:</strong> Isolation Forest analyzes AWS CloudWatch telemetry to detect memory leaks and CPU spikes.</li>
+                                    <li><strong>Self-healing Lambda:</strong> Automated serverless routines re-route traffic, restart pods, and notify teams via SNS.</li>
                                 </ul>
                             </div>
                             <!-- MOCK BROWSER DEMO WINDOW -->
@@ -5082,10 +5095,18 @@
 
             let badgesHtml = data.tech.map(t => `<span class="proj-tech-pill">${t}</span>`).join(' ');
 
+            // Map slug to element key (e.g., isl-translator -> isl)
+            const projKey = (slug === 'isl-translator' || slug === 'isl') ? 'isl' : slug;
             let demoWindowHtml = '';
-            const existingWindow = document.getElementById('demoWindow-' + slug);
+            const existingWindow = document.getElementById('demoWindow-' + projKey) || document.getElementById('demoWindow-' + slug);
+            const existingDots = document.getElementById(projKey + 'Dots') || document.getElementById(slug + 'Dots');
             if (existingWindow) {
                 demoWindowHtml = existingWindow.outerHTML;
+                if (existingDots) {
+                    demoWindowHtml += existingDots.outerHTML;
+                }
+            } else if (data.demoHtml) {
+                demoWindowHtml = data.demoHtml;
             }
 
             contentEl.innerHTML = `
@@ -5110,6 +5131,12 @@
             listEl.style.display = 'none';
             detailEl.classList.add('active');
             history.pushState({ view: 'works', slug: slug }, '', '#works/' + slug);
+
+            // Trigger animation runner for this newly inserted window
+            if (typeof renderProjectStep === 'function' && typeof startProjectAutoRunner === 'function') {
+                renderProjectStep(projKey, 0);
+                startProjectAutoRunner(projKey);
+            }
         }
 
         function backToWorksList() {
